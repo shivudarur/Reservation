@@ -1,0 +1,85 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowActionBar">false</item>
+        <item name="colorPrimary">@color/dark_sky_blue</item>
+        <item name="colorControlNormal">@color/warm_grey</item>
+        <item name="colorControlActivated">@color/dark_sky_blue</item>
+        <item name="colorControlHighlight">@color/warm_grey</item>
+
+        <!-- disable multitouch in app, for cases when user can click 2 and more buttons -->
+        <item name="android:splitMotionEvents">false</item>
+        <item name="android:windowBackground">@color/grey_background</item>
+    </style>
+
+    <style name="Wrap">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="Match">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+    </style>
+
+    <style name="MatchWidth">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="MatchHeight">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">match_parent</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar"/>
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light"/>
+
+    <!-- Base text appearance -->
+
+    <!-- Wrap content and typeName style 14sp -->
+    <style name="TextAppearance.Size14" parent="Wrap">
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="TextAppearance.Size16" parent="Wrap">
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="TextAppearance.Size17" parent="Wrap">
+        <item name="android:textSize">17sp</item>
+    </style>
+
+    <style name="TextAppearance.Size18" parent="Wrap">
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="TextAppearance.Size22" parent="Wrap">
+        <item name="android:textSize">22sp</item>
+    </style>
+
+    <style name="TextAppearance.Size38" parent="Wrap">
+        <item name="android:textSize">38sp</item>
+    </style>
+
+    <style name="TextAppearance.Size34" parent="Wrap">
+        <item name="android:textSize">34sp</item>
+    </style>
+    <!-- Wrap content and typeName style 14sp with grey color -->
+    <style name="TextAppearance.Size14.Grey" parent="TextAppearance.Size14">
+        <item name="android:textColor">@color/warm_grey</item>
+    </style>
+
+    <style name="toolbar_title" parent="Wrap">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="toolbar_icon" parent="Wrap">
+        <item name="android:layout_gravity">center_vertical|left</item>
+        <item name="android:padding">5dp</item>
+    </style>
+
+</resources>

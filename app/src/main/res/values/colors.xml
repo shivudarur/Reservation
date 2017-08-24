@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="orange_dark">#A95523</color>
+    <color name="small_opacity_black">#10000000</color>
+    <color name="medium_opacity_black">#66000000</color>
+    <color name="separator_grey">#1C000000</color>
+    <color name="big_opacity_white">#A0FFFFFF</color>
+    <color name="red_dark">#C43547</color>
+    <color name="blue_dark">#3A64C3</color>
+    <color name="blue_saturated">#003E70</color>
+    <color name="grey_button">#F7F7F7</color>
+    <color name="grey_background">#F5F5F5</color>
+    <color name="grey_disabled">#BBBBBB</color>
+    <color name="grey_text">#9B9B9B</color>
+    <color name="dark_grey">#3A3A3A</color>
+    <color name="medium_dark_grey">#4A4A4A</color>
+    <color name="light_grey">#E3E3E3</color>
+    <color name="grey_light_car_card">#888888</color>
+    <color name="yellow">#BCB54E</color>
+    <color name="yellow_vin_indicator">#F8E71C</color>
+    <color name="dcb_timer_background">#E8D836</color>
+    <color name="black_overlay">#B2000000</color>
+    <color name="translucent_black">#80000000</color>
+    <color name="faded_red_transparent">#99c33446</color>
+    <!-- Text -->
+    <color name="grey_light">#C4C4C4</color>
+    <color name="grey_df">#DFDFDF</color>
+    <color name="white_transparency">#8CFFFFFF</color>
+    <color name="blue_text">#084D80</color>
+    <!-- Backgrounds -->
+    <color name="grey_sub_background">#E6E8F1</color>
+    <color name="dark_sky_blue">#4A90E2</color>
+    <color name="faded_red">#C43546</color>
+    <color name="cobalt">#1B4691</color>
+    <color name="cobalt_opacity75">#751B4691</color>
+    <color name="pale_grey">#EEEFF5</color>
+    <color name="dusty_orange">#E87F36</color>
+    <color name="avocado_green">#68AE1B</color>
+    <color name="warm_grey">#979797</color>
+    <color name="pinkish_grey">#BABABA</color>
+    <color name="windows_blue">#417FC7</color>
+    <color name="rusty_red">#BB1010</color>
+    <color name="duck_egg_blue">#EBF2FC</color>
+    <color name="white">#FFFFFF</color>
+    <color name="white_two">#E6E6E6</color>
+    <color name="frog_green">#75D30E</color>
+    <color name="black">#000000</color>
+    <color name="blue_grey">#616F91</color>
+    <color name="black_transparency">#BA000000</color>
+    <color name="red_pure">#FF0000</color>
+    <color name="grey_shadow">#CECCCF</color>
+    <color name="faded_grey">#87121212</color>
+    <color name="overlay">#CC061228</color>
+    <color name="tutorial_black">#CC061228</color>
+    <color name="grey_transparent">#33DFDFDF</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="color_black_dialog_title">#030303</color>
+    <color name="grey_placeholder">#E4E1E5</color>
+    <color name="translucent_black_alpha">#cc061228</color>
+    <!-- Tire colors -->
+    <color name="tire_green_translucent">#6668AE1A</color>
+    <color name="tire_blue_translucent">#6E4A8FE2</color>
+    <color name="dialog_button_text">#037AFF</color>
+
+    <!-- Error colors -->
+    <color name="red_error_light">#FFDCDC</color>
+    <color name="red_error_light_translucent">#6EFFDCDC</color>
+    <color name="red_error_dark">#C43546</color>
+
+    <color name="overview_header_blue">#4185DE</color>
+
+</resources>
