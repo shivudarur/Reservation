@@ -25,7 +25,11 @@ public class DataRepository {
         this.localRepository = localRepository;
     }
 
-    public Single<ResponseWrapper<List<Customer>>> getCustomers() {
-        return apiRepository.getCustomers();
+    public Single<ResponseWrapper<List<Customer>>> getCustomers(boolean getFromBackend) {
+        return getFromBackend ? apiRepository.getCustomers() : localRepository.getCustomers();
+    }
+
+    public void saveCustomers(List<Customer> customers) {
+        localRepository.saveCustomers(customers);
     }
 }

@@ -5,7 +5,6 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.shiva.reservation.R;
@@ -17,7 +16,7 @@ import butterknife.ButterKnife;
  * Created by shivananda.darura on 23/08/17.
  */
 
-public abstract class BaseActivity extends AppCompatActivity implements Presenter.View, ActionBarView {
+public abstract class BaseActivity extends AppCompatActivity implements Presenter.View {
 
     protected Presenter presenter;
 
@@ -69,12 +68,12 @@ public abstract class BaseActivity extends AppCompatActivity implements Presente
     }
 
     @Override
-    public void setTitle(String title) {
+    public void setTitle(int titleResourceId) {
         final ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
             TextView titleTextView = ButterKnife.findById(this, R.id.txt_toolbar_title);
             if (titleTextView != null) {
-                titleTextView.setText(title);
+                titleTextView.setText(getString(titleResourceId));
             }
         }
     }

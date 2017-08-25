@@ -18,7 +18,7 @@ public class Presenter<T extends Presenter.View> {
 
     }
 
-    public interface View {
+    public interface View extends ActionBarView {
 
     }
 

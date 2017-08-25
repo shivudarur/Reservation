@@ -3,7 +3,6 @@ package com.shiva.reservation.di.component;
 import com.shiva.reservation.di.module.AppModule;
 import com.shiva.reservation.di.module.NetModule;
 import com.shiva.reservation.ui.component.home.HomeActivity;
-import com.shiva.reservation.ui.component.splash.SplashActivity;
 
 import javax.inject.Singleton;
 
@@ -15,8 +14,6 @@ import dagger.Component;
 @Singleton
 @Component(modules = {AppModule.class, NetModule.class})
 public interface MainComponent {
-
-    void inject(SplashActivity activity);
 
     void inject(HomeActivity activity);
 }

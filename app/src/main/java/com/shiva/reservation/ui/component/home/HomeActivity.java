@@ -30,10 +30,10 @@ public class HomeActivity extends BaseActivity implements HomeView {
     @Inject
     HomePresenter homePresenter;
 
-    @Bind(R.id.rv_recipes)
-    RecyclerView rvRecipes;
     @Bind(R.id.cl_parent)
     CoordinatorLayout clParent;
+    @Bind(R.id.rv_customers)
+    RecyclerView rvCustomers;
     @Bind(R.id.pb_loader)
     ProgressBar pbLoader;
 
@@ -50,10 +50,10 @@ public class HomeActivity extends BaseActivity implements HomeView {
 
     @Override
     public void showCustomers(List<Customer> customerList, RecyclerItemListener recyclerItemListener) {
-        rvRecipes.setVisibility(View.VISIBLE);
+        rvCustomers.setVisibility(View.VISIBLE);
         CustomersAdapter customersAdapter = new CustomersAdapter(customerList, recyclerItemListener);
-        rvRecipes.setLayoutManager(new LinearLayoutManager(this));
-        rvRecipes.setAdapter(customersAdapter);
+        rvCustomers.setLayoutManager(new LinearLayoutManager(this));
+        rvCustomers.setAdapter(customersAdapter);
     }
 
     //Component contracts.

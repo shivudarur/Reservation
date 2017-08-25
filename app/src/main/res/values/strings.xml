@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Reservation</string>
-    <string name="data_download_error">Unable to download sata!. Please try again later.</string>
+    <string name="data_loading_error">Unable to Load data!. Please try again later.</string>
+    <string name="customers">Customers</string>
 </resources>

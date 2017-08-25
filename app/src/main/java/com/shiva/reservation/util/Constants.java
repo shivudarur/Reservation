@@ -15,5 +15,8 @@ public class Constants {
     public static final int GROUP_200 = 2;
     public static final int VALUE_100 = 100;
     public static final int SUCCESS_RESPONSE = GROUP_200 * VALUE_100;
+
+    //Errors
     public static final int ERROR_UNDEFINED = -1;
+    public static final int ERROR_DB = -1;
 }
