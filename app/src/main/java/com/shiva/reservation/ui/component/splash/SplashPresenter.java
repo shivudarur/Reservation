@@ -27,7 +27,7 @@ public class SplashPresenter extends Presenter<SplashView> {
     }
 
     private void pauseWhileANdNavigate() {
-        Completable.timer(5, TimeUnit.SECONDS)
+        Completable.timer(1, TimeUnit.SECONDS)
             .subscribe(() -> view.openHomeScreen());
     }
 }

@@ -1,6 +1,8 @@
 package com.shiva.reservation.di.module;
 
+import com.google.gson.FieldNamingPolicy;
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.shiva.reservation.useCase.base.RxTransformer;
 import com.shiva.reservation.util.ConfigurationManager;
 
@@ -25,6 +27,14 @@ import static java.util.concurrent.TimeUnit.SECONDS;
 
 @Module
 public class NetModule {
+
+    @Provides
+    @Singleton
+    public Gson provideGson() {
+        GsonBuilder gsonBuilder = new GsonBuilder();
+        gsonBuilder.setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES);
+        return gsonBuilder.create();
+    }
 
     @Provides
     @Singleton

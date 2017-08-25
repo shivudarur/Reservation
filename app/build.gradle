@@ -25,13 +25,13 @@ android {
             applicationId defaultConfig.applicationId + ".dev"
             versionName project.versionName + "-dev"
             buildConfigField 'String', 'APP_NAME', '"Reservation-dev"'
-            buildConfigField 'String', 'BASE_URL', '"http://api-aws-eu-qa-1.auto1-test.com"'
+            buildConfigField 'String', 'BASE_URL', '" https://s3-eu-west-1.amazonaws.com/"'
         }
         prod {
             versionCode project.versionCode
             versionName project.versionName
             buildConfigField 'String', 'APP_NAME', '"Reservation"'
-            buildConfigField 'String', 'BASE_URL', '"https://api.wkda.de/"'
+            buildConfigField 'String', 'BASE_URL', '" https://s3-eu-west-1.amazonaws.com/"'
         }
     }
 

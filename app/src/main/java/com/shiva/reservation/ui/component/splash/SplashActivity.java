@@ -3,6 +3,7 @@ package com.shiva.reservation.ui.component.splash;
 import com.shiva.reservation.App;
 import com.shiva.reservation.R;
 import com.shiva.reservation.ui.base.BaseActivity;
+import com.shiva.reservation.ui.component.home.HomeActivity;
 
 import javax.inject.Inject;
 
@@ -17,15 +18,14 @@ public class SplashActivity extends BaseActivity implements SplashView {
 
     @Override
     public void openHomeScreen() {
-        //TODO
-        //openHomeScreen
+        HomeActivity.open(getApplicationContext());
     }
 
     //Component contracts.
     @Override
     protected void initializeDagger() {
         App app = (App) getApplication();
-        app.getMainComponent().inject(this);
+        app.getMainScreenComponent().inject(this);
     }
 
     @Override

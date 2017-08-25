@@ -68,8 +68,12 @@
         <item name="android:textSize">34sp</item>
     </style>
     <!-- Wrap content and typeName style 14sp with grey color -->
-    <style name="TextAppearance.Size14.Grey" parent="TextAppearance.Size14">
+    <style name="TextAppearance.Size14.Grey">
         <item name="android:textColor">@color/warm_grey</item>
+    </style>
+
+    <style name="TextAppearance.Size22.Blue">
+        <item name="android:textColor">@color/blue_text</item>
     </style>
 
     <style name="toolbar_title" parent="Wrap">

@@ -5,6 +5,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.shiva.reservation.R;
@@ -42,6 +43,18 @@ public abstract class BaseActivity extends AppCompatActivity implements Presente
         if (presenter != null) {
             presenter.initialize(getIntent().getExtras());
         }
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        presenter.onStart();
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        presenter.onStop();
     }
 
     private void initializeButterKnife() {

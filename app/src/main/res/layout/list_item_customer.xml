@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView
+    android:id="@+id/txt_customer_name"
+    style="@style/TextAppearance.Size22.Blue"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_gravity="center"
+    android:layout_margin="@dimen/dp10"
+    android:textStyle="bold"
+    tools:text="@string/app_name"/>

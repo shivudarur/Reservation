@@ -1,6 +1,8 @@
 package com.shiva.reservation.util;
 
+import android.app.Application;
 import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.util.Patterns;
 
@@ -20,8 +22,8 @@ public class ConfigurationManager {
     private final String BASE_URL_KEY = "BaseURL";
 
     @Inject
-    public ConfigurationManager(SharedPreferences sharedPreferences) {
-        this.sharedPreferences = sharedPreferences;
+    public ConfigurationManager(Application application) {
+        this.sharedPreferences = PreferenceManager.getDefaultSharedPreferences(application);
     }
 
     @NonNull

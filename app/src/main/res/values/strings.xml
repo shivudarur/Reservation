@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Reservation</string>
+    <string name="data_download_error">Unable to download sata!. Please try again later.</string>
 </resources>

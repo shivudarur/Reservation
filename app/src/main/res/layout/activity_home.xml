@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+    android:id="@+id/cl_parent"
+    style="@style/Match"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/cl_content_container"
+        style="@style/Match"
+        android:orientation="vertical">
+
+        <include android:id="@+id/toolbar_layout"
+                 layout="@layout/toolbar"/>
+
+        <ProgressBar
+            android:id="@+id/pb_loader"
+            style="@style/Wrap"
+            app:layout_constraintBottom_toBottomOf="@id/cl_content_container"
+            app:layout_constraintLeft_toLeftOf="@+id/cl_content_container"
+            app:layout_constraintRight_toRightOf="@id/cl_content_container"
+            app:layout_constraintTop_toBottomOf="@id/toolbar_layout"/>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rv_recipes"
+            style="@style/MatchWidth"
+            android:visibility="gone"
+            app:layout_constraintTop_toBottomOf="@id/toolbar_layout"/>
+
+    </android.support.constraint.ConstraintLayout>
+
+</android.support.design.widget.CoordinatorLayout>
+

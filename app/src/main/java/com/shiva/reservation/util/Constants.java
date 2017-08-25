@@ -12,4 +12,8 @@ public class Constants {
     //Network constants
     public static final int TIMEOUT_CONNECT = 30;   //In seconds
     public static final int TIMEOUT_READ = 30;   //In seconds
+    public static final int GROUP_200 = 2;
+    public static final int VALUE_100 = 100;
+    public static final int SUCCESS_RESPONSE = GROUP_200 * VALUE_100;
+    public static final int ERROR_UNDEFINED = -1;
 }

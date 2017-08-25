@@ -10,7 +10,16 @@ public class Presenter<T extends Presenter.View> {
 
     protected T view;
 
+    public void onStart() {
+
+    }
+
+    public void onStop() {
+
+    }
+
     public interface View {
+
     }
 
     public T getView() {
