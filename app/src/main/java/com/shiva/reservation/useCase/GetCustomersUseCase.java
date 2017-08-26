@@ -1,4 +1,4 @@
-package com.shiva.reservation.useCase.base;
+package com.shiva.reservation.useCase;
 
 import android.support.annotation.NonNull;
 

@@ -3,6 +3,7 @@ package com.shiva.reservation.data;
 import com.shiva.reservation.data.local.LocalRepository;
 import com.shiva.reservation.data.remote.ApiRepository;
 import com.shiva.reservation.model.Customer;
+import com.shiva.reservation.model.TableMap;
 
 import java.util.List;
 
@@ -31,5 +32,17 @@ public class DataRepository {
 
     public void saveCustomers(List<Customer> customers) {
         localRepository.saveCustomers(customers);
+    }
+
+    public Single<ResponseWrapper<List<TableMap>>> getTableMaps(boolean getFromBackend) {
+        return getFromBackend ? apiRepository.getTableMaps() : localRepository.getTableMaps();
+    }
+
+    public void saveTableMaps(List<TableMap> tableMaps) {
+        localRepository.saveTableMaps(tableMaps);
+    }
+
+    public Single<ResponseWrapper<Boolean>> updateTableMap(TableMap tableMap) {
+        return localRepository.updateTableMap(tableMap);
     }
 }

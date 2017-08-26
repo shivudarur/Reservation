@@ -1,19 +1,19 @@
-package com.shiva.reservation.ui.component.home;
+package com.shiva.reservation.ui.component.tableReservation;
 
+import android.content.Context;
+import android.content.Intent;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.Snackbar;
-import android.support.v7.widget.DividerItemDecoration;
-import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ProgressBar;
 
 import com.shiva.reservation.App;
 import com.shiva.reservation.R;
-import com.shiva.reservation.model.Customer;
+import com.shiva.reservation.model.TableMap;
 import com.shiva.reservation.ui.base.BaseActivity;
 import com.shiva.reservation.ui.base.listeners.RecyclerItemListener;
-import com.shiva.reservation.ui.component.tableReservation.TableReservationActivity;
 
 import java.util.List;
 
@@ -25,30 +25,36 @@ import butterknife.Bind;
  * Created by shivananda.darura on 23/08/17.
  */
 
-public class HomeActivity extends BaseActivity implements HomeView {
+public class TableReservationActivity extends BaseActivity implements TableReservationView {
 
     @Inject
-    HomePresenter homePresenter;
+    TableReservationPresenter tableReservationPresenter;
 
     @Bind(R.id.cl_parent)
     CoordinatorLayout clParent;
-    @Bind(R.id.rv_customers)
-    RecyclerView rvCustomers;
+    @Bind(R.id.rv_table_maps)
+    RecyclerView rvTableMaps;
     @Bind(R.id.pb_loader)
     ProgressBar pbLoader;
 
-    @Override
-    public void openTableSelectionScreen() {
-        TableReservationActivity.open(getApplicationContext());
+    private TableMapsAdapter tableMapsAdapter;
+
+    public static void open(Context context) {
+        Intent intent = new Intent(context, TableReservationActivity.class);
+        context.startActivity(intent);
     }
 
     @Override
-    public void showCustomers(List<Customer> customerList, RecyclerItemListener recyclerItemListener) {
-        rvCustomers.setVisibility(View.VISIBLE);
-        CustomersAdapter customersAdapter = new CustomersAdapter(customerList, recyclerItemListener);
-        rvCustomers.setLayoutManager(new LinearLayoutManager(this));
-        rvCustomers.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
-        rvCustomers.setAdapter(customersAdapter);
+    public void showTableMaps(List<TableMap> tableMapList, RecyclerItemListener recyclerItemListener) {
+        rvTableMaps.setVisibility(View.VISIBLE);
+        tableMapsAdapter = new TableMapsAdapter(tableMapList, recyclerItemListener);
+        rvTableMaps.setLayoutManager(new GridLayoutManager(this, 2));
+        rvTableMaps.setAdapter(tableMapsAdapter);
+    }
+
+    @Override
+    public void notifyItemChanged(int position) {
+        tableMapsAdapter.notifyItemChanged(position);
     }
 
     //Component contracts.
@@ -60,13 +66,13 @@ public class HomeActivity extends BaseActivity implements HomeView {
 
     @Override
     protected void initializePresenter() {
-        super.presenter = homePresenter;
+        super.presenter = tableReservationPresenter;
         presenter.setView(this);
     }
 
     @Override
     public int getLayoutId() {
-        return R.layout.activity_home;
+        return R.layout.activity_table_reservation;
     }
 
     @Override

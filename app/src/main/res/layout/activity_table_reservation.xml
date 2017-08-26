@@ -10,8 +10,9 @@
         style="@style/Match"
         android:orientation="vertical">
 
-        <include android:id="@+id/toolbar_layout"
-                 layout="@layout/toolbar"/>
+        <include
+            android:id="@+id/toolbar_layout"
+            layout="@layout/toolbar"/>
 
         <ProgressBar
             android:id="@+id/pb_loader"
@@ -22,10 +23,9 @@
             app:layout_constraintTop_toBottomOf="@id/toolbar_layout"/>
 
         <android.support.v7.widget.RecyclerView
-            android:id="@+id/rv_customers"
+            android:id="@+id/rv_table_maps"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_margin="@dimen/dp5"
             android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="@id/cl_content_container"
             app:layout_constraintHorizontal_bias="0"

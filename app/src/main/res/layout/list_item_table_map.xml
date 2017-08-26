@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    android:id="@+id/card_view"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/Wrap"
+    android:layout_gravity="center"
+    android:layout_margin="@dimen/dp10"
+    card_view:cardCornerRadius="4dp">
+
+    <TextView
+        android:id="@+id/txt_status"
+        style="@style/table_map"
+        android:gravity="center"
+        tools:text="Yes"/>
+
+</android.support.v7.widget.CardView>

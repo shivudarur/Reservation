@@ -8,6 +8,7 @@ import com.j256.ormlite.dao.Dao;
 import com.shiva.reservation.data.ResponseWrapper;
 import com.shiva.reservation.data.local.db.DatabaseHelper;
 import com.shiva.reservation.model.Customer;
+import com.shiva.reservation.model.TableMap;
 import com.shiva.reservation.util.Constants;
 
 import java.sql.SQLException;
@@ -33,6 +34,10 @@ public class LocalRepository {
     private <T> Single<ResponseWrapper<T>> processResponse(T response) {
         return Single.just(new ResponseWrapper<>(response == null ? Constants.ERROR_UNDEFINED :
             Constants.SUCCESS_RESPONSE, response));
+    }
+
+    private <T> Single<ResponseWrapper<T>> getWrappedDbSuccessResponse(T response) {
+        return Single.just(new ResponseWrapper<>(Constants.SUCCESS_RESPONSE, response));
     }
 
     private <T> Single<ResponseWrapper<T>> getWrappedDbError(T response, Throwable throwable) {
@@ -68,5 +73,53 @@ public class LocalRepository {
         } finally {
             OpenHelperManager.releaseHelper();
         }
+    }
+
+    @NonNull
+    public Single<ResponseWrapper<List<TableMap>>> getTableMaps() {
+        DatabaseHelper databaseHelper = OpenHelperManager.getHelper(application.getApplicationContext(), DatabaseHelper.class);
+        final Dao<TableMap, Integer> tableMapDao;
+        try {
+            tableMapDao = databaseHelper.getTableMapDao();
+            final List<TableMap> tableMaps = tableMapDao.queryForAll();
+            return processResponse(tableMaps);
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return getWrappedDbError(null, e);
+        } finally {
+            OpenHelperManager.releaseHelper();
+        }
+    }
+
+    public void saveTableMaps(@NonNull List<TableMap> tableMaps) {
+        DatabaseHelper databaseHelper = OpenHelperManager.getHelper(application.getApplicationContext(), DatabaseHelper.class);
+        final Dao<TableMap, Integer> tableMapDao;
+        try {
+            tableMapDao = databaseHelper.getTableMapDao();
+            for (TableMap tableMap : tableMaps) {
+                tableMapDao.createIfNotExists(tableMap);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            OpenHelperManager.releaseHelper();
+        }
+    }
+
+    public Single<ResponseWrapper<Boolean>> updateTableMap(TableMap tableMap) {
+
+        DatabaseHelper databaseHelper = OpenHelperManager.getHelper(application.getApplicationContext(), DatabaseHelper.class);
+        final Dao<TableMap, Integer> tableMapDao;
+        try {
+            tableMapDao = databaseHelper.getTableMapDao();
+            final int numberOfRowsUpdated = tableMapDao.update(tableMap);
+            return numberOfRowsUpdated == 1 ? getWrappedDbSuccessResponse(true) : getWrappedDbError(false, null);
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return getWrappedDbError(null, e);
+        } finally {
+            OpenHelperManager.releaseHelper();
+        }
+
     }
 }

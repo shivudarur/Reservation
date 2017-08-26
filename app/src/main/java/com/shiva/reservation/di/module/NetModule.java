@@ -3,8 +3,10 @@ package com.shiva.reservation.di.module;
 import com.google.gson.FieldNamingPolicy;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.shiva.reservation.model.TableMap;
 import com.shiva.reservation.useCase.base.RxTransformer;
 import com.shiva.reservation.util.ConfigurationManager;
+import com.shiva.reservation.util.gson.TableMapDeserializer;
 
 import javax.inject.Named;
 import javax.inject.Singleton;
@@ -31,9 +33,10 @@ public class NetModule {
     @Provides
     @Singleton
     public Gson provideGson() {
-        GsonBuilder gsonBuilder = new GsonBuilder();
-        gsonBuilder.setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES);
-        return gsonBuilder.create();
+        return new GsonBuilder()
+            .setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES)
+            .registerTypeAdapter(TableMap.class, new TableMapDeserializer())
+            .create();
     }
 
     @Provides

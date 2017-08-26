@@ -8,6 +8,7 @@ import com.j256.ormlite.dao.Dao;
 import com.j256.ormlite.support.ConnectionSource;
 import com.j256.ormlite.table.TableUtils;
 import com.shiva.reservation.model.Customer;
+import com.shiva.reservation.model.TableMap;
 
 import java.sql.SQLException;
 
@@ -21,6 +22,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
     private static final int DATABASE_VERSION = 1;
 
     private Dao<Customer, Integer> customerDao = null;
+    private Dao<TableMap, Integer> tableMapDao = null;
 
     public DatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -30,6 +32,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
     public void onCreate(SQLiteDatabase db, ConnectionSource connectionSource) {
         try {
             TableUtils.createTable(connectionSource, Customer.class);
+            TableUtils.createTable(connectionSource, TableMap.class);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -40,6 +43,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
                           int oldVersion, int newVersion) {
         try {
             TableUtils.dropTable(connectionSource, Customer.class, true);
+            TableUtils.dropTable(connectionSource, TableMap.class, true);
             onCreate(db, connectionSource);
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -53,6 +57,13 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
         }
 
         return customerDao;
+    }
+
+    public Dao<TableMap, Integer> getTableMapDao() throws SQLException {
+        if (tableMapDao == null) {
+            tableMapDao = getDao(TableMap.class);
+        }
+        return tableMapDao;
     }
 
     @Override

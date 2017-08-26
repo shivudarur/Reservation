@@ -64,6 +64,10 @@
         <item name="android:textSize">38sp</item>
     </style>
 
+    <style name="TextAppearance.Size38.Bold" parent="Wrap">
+        <item name="android:textStyle">bold</item>
+    </style>
+
     <style name="TextAppearance.Size34" parent="Wrap">
         <item name="android:textSize">34sp</item>
     </style>
@@ -84,6 +88,28 @@
     <style name="toolbar_icon" parent="Wrap">
         <item name="android:layout_gravity">center_vertical|left</item>
         <item name="android:padding">5dp</item>
+    </style>
+    <style name="TextAppearance.Size38.Bold.Shadow">
+        <item name="android:shadowColor">@color/blue_dark</item>
+        <item name="android:shadowDx">3</item>
+        <item name="android:shadowDy">3</item>
+        <item name="android:shadowRadius">11</item>
+    </style>
+
+    <style name="customer_name" parent="TextAppearance.Size38.Bold.Shadow">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:gravity">center</item>
+        <item name="android:background">@color/cobalt</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="table_map" parent="TextAppearance.Size38.Bold.Shadow">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:gravity">center</item>
+        <item name="android:background">@color/blue_saturated</item>
+        <item name="android:textColor">@color/white</item>
     </style>
 
 </resources>

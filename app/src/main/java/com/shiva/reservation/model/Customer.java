@@ -2,11 +2,13 @@ package com.shiva.reservation.model;
 
 import com.google.gson.annotations.SerializedName;
 import com.j256.ormlite.field.DatabaseField;
+import com.j256.ormlite.table.DatabaseTable;
 
 /**
  * Created by shivananda.darura on 24/08/17.
  */
 
+@DatabaseTable
 public class Customer {
 
     @SerializedName("id")

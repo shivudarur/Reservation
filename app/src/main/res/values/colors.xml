@@ -60,7 +60,7 @@
     <color name="translucent_black_alpha">#cc061228</color>
     <!-- Tire colors -->
     <color name="tire_green_translucent">#6668AE1A</color>
-    <color name="tire_blue_translucent">#6E4A8FE2</color>
+    <color name="blue_translucent">#6E4A8FE2</color>
     <color name="dialog_button_text">#037AFF</color>
 
     <!-- Error colors -->

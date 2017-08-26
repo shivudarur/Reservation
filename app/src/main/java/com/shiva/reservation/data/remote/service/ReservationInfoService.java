@@ -1,6 +1,7 @@
 package com.shiva.reservation.data.remote.service;
 
 import com.shiva.reservation.model.Customer;
+import com.shiva.reservation.model.TableMap;
 
 import java.util.List;
 
@@ -15,4 +16,7 @@ public interface ReservationInfoService {
 
     @GET("quandoo-assessment/customer-list.json")
     Single<List<Customer>> getCustomers();
+
+    @GET("quandoo-assessment/table-map.json")
+    Single<List<TableMap>> getTableMap();
 }

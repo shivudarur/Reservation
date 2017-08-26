@@ -5,6 +5,7 @@ import android.support.annotation.NonNull;
 import com.shiva.reservation.data.ResponseWrapper;
 import com.shiva.reservation.data.remote.service.ReservationInfoService;
 import com.shiva.reservation.model.Customer;
+import com.shiva.reservation.model.TableMap;
 import com.shiva.reservation.util.Constants;
 
 import java.util.List;
@@ -35,6 +36,12 @@ public class ApiRepository {
     public Single<ResponseWrapper<List<Customer>>> getCustomers() {
         final ReservationInfoService infoService = serviceGenerator.createService(ReservationInfoService.class, baseUrl);
         final Single<List<Customer>> responseSingle = infoService.getCustomers();
+        return processApiStream(responseSingle);
+    }
+
+    public Single<ResponseWrapper<List<TableMap>>> getTableMaps() {
+        final ReservationInfoService infoService = serviceGenerator.createService(ReservationInfoService.class, baseUrl);
+        final Single<List<TableMap>> responseSingle = infoService.getTableMap();
         return processApiStream(responseSingle);
     }
 

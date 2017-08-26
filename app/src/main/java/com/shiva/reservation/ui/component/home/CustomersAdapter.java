@@ -59,10 +59,7 @@ public class CustomersAdapter extends RecyclerView.Adapter<CustomersAdapter.Cust
         public void bind(final int position, RecyclerItemListener recyclerItemListener) {
             Customer customer = customers.get(position);
             txtCustomerName.setText(customer.getCustomerFirstName() + " " + customer.getCustomerLastName());
-            txtCustomerName.setOnClickListener(v -> {
-                notifyDataSetChanged();
-                recyclerItemListener.onItemSelected(position);
-            });
+            txtCustomerName.setOnClickListener(v -> recyclerItemListener.onItemSelected(position));
         }
     }
 }

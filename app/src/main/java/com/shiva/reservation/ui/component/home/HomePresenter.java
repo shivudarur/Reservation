@@ -5,9 +5,9 @@ import android.os.Bundle;
 import com.shiva.reservation.R;
 import com.shiva.reservation.model.Customer;
 import com.shiva.reservation.ui.base.RxPresenter;
-import com.shiva.reservation.useCase.base.GetCustomersUseCase;
+import com.shiva.reservation.useCase.GetCustomersUseCase;
 import com.shiva.reservation.useCase.base.RxTransformer;
-import com.shiva.reservation.useCase.base.SaveCustomersUseCase;
+import com.shiva.reservation.useCase.SaveCustomersUseCase;
 import com.shiva.reservation.util.ErrorUtils;
 
 import java.util.List;
@@ -50,7 +50,7 @@ public class HomePresenter extends RxPresenter<HomeView> {
                     if (!errorUtils.isEmptyCollection(customerList)) {
                         view.hideProgress();
                         view.showCustomers(customerList, position -> {
-
+                            view.openTableSelectionScreen();
                         });
                     } else {
                         //There are no data in the local database.
@@ -71,7 +71,7 @@ public class HomePresenter extends RxPresenter<HomeView> {
                     final List<Customer> customerList = listResponseWrapper.getResponse();
                     if (!errorUtils.isEmptyCollection(customerList)) {
                         view.showCustomers(customerList, position -> {
-
+                            view.openTableSelectionScreen();
                         });
                         //Save Customer list in local Db
                         saveCustomersUseCase.saveCustomers(customerList);
