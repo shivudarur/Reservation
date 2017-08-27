@@ -9,11 +9,12 @@ ext {
     targetSdkVersion = 25
 
     //Libraries
-    supportLibraryVersion = '25.3.1'
+    supportLibraryVersion = '25.4.0'
     daggerVersion = '2.9'
     playServicesVersion = '10.2.0'
     mockitoVersion = '1.10.19'
     retrofitVersion = '2.2.0'
     rxJavaVersion = '2.0.8'
     rxAndroidVersion = '2.0.1'
+    espressoVersion = '3.0.0'
 }

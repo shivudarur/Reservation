@@ -14,6 +14,7 @@ import com.shiva.reservation.model.Customer;
 import com.shiva.reservation.ui.base.BaseActivity;
 import com.shiva.reservation.ui.base.listeners.RecyclerItemListener;
 import com.shiva.reservation.ui.component.tableReservation.TableReservationActivity;
+import com.shiva.reservation.util.ErrorUtils;
 
 import java.util.List;
 
@@ -29,6 +30,8 @@ public class HomeActivity extends BaseActivity implements HomeView {
 
     @Inject
     HomePresenter homePresenter;
+    @Inject
+    ErrorUtils errorUtils;
 
     @Bind(R.id.cl_parent)
     CoordinatorLayout clParent;
@@ -44,6 +47,10 @@ public class HomeActivity extends BaseActivity implements HomeView {
 
     @Override
     public void showCustomers(List<Customer> customerList, RecyclerItemListener recyclerItemListener) {
+        if (errorUtils.isEmptyCollection(customerList)) {
+            showError(R.string.data_loading_error);
+            return;
+        }
         rvCustomers.setVisibility(View.VISIBLE);
         CustomersAdapter customersAdapter = new CustomersAdapter(customerList, recyclerItemListener);
         rvCustomers.setLayoutManager(new LinearLayoutManager(this));

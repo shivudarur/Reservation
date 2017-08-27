@@ -14,6 +14,7 @@ import com.shiva.reservation.R;
 import com.shiva.reservation.model.TableMap;
 import com.shiva.reservation.ui.base.BaseActivity;
 import com.shiva.reservation.ui.base.listeners.RecyclerItemListener;
+import com.shiva.reservation.util.ErrorUtils;
 
 import java.util.List;
 
@@ -29,6 +30,8 @@ public class TableReservationActivity extends BaseActivity implements TableReser
 
     @Inject
     TableReservationPresenter tableReservationPresenter;
+    @Inject
+    ErrorUtils errorUtils;
 
     @Bind(R.id.cl_parent)
     CoordinatorLayout clParent;
@@ -46,6 +49,10 @@ public class TableReservationActivity extends BaseActivity implements TableReser
 
     @Override
     public void showTableMaps(List<TableMap> tableMapList, RecyclerItemListener recyclerItemListener) {
+        if (errorUtils.isEmptyCollection(tableMapList)) {
+            showError(R.string.data_loading_error);
+            return;
+        }
         rvTableMaps.setVisibility(View.VISIBLE);
         tableMapsAdapter = new TableMapsAdapter(tableMapList, recyclerItemListener);
         rvTableMaps.setLayoutManager(new GridLayoutManager(this, 2));
