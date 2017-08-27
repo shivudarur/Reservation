@@ -23,6 +23,8 @@
 
         <activity android:name=".ui.component.tableReservation.TableReservationActivity"/>
 
+        <receiver android:name=".receiver.TablesResetBroadcastReceiver"/>
+
     </application>
 
 </manifest>

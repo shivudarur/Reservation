@@ -5,6 +5,7 @@ import android.support.annotation.NonNull;
 
 import com.j256.ormlite.android.apptools.OpenHelperManager;
 import com.j256.ormlite.dao.Dao;
+import com.j256.ormlite.stmt.UpdateBuilder;
 import com.shiva.reservation.data.ResponseWrapper;
 import com.shiva.reservation.data.local.db.DatabaseHelper;
 import com.shiva.reservation.model.Customer;
@@ -121,5 +122,21 @@ public class LocalRepository {
             OpenHelperManager.releaseHelper();
         }
 
+    }
+
+    public void resetTableMaps() {
+        DatabaseHelper databaseHelper = OpenHelperManager.getHelper(application.getApplicationContext(), DatabaseHelper.class);
+        final Dao<TableMap, Integer> tableMapDao;
+        try {
+            tableMapDao = databaseHelper.getTableMapDao();
+            final UpdateBuilder<TableMap, Integer> updateBuilder = tableMapDao.updateBuilder();
+            updateBuilder.where().eq("isTableReserved", true);
+            updateBuilder.updateColumnValue("isTableReserved", false);
+            updateBuilder.update();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            OpenHelperManager.releaseHelper();
+        }
     }
 }

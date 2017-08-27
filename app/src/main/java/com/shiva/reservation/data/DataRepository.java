@@ -45,4 +45,8 @@ public class DataRepository {
     public Single<ResponseWrapper<Boolean>> updateTableMap(TableMap tableMap) {
         return localRepository.updateTableMap(tableMap);
     }
+
+    public void resetTableMaps() {
+        localRepository.resetTableMaps();
+    }
 }

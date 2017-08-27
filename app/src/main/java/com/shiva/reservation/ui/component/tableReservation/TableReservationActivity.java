@@ -61,7 +61,7 @@ public class TableReservationActivity extends BaseActivity implements TableReser
     @Override
     protected void initializeDagger() {
         App app = (App) getApplication();
-        app.getMainScreenComponent().inject(this);
+        app.getMainComponent().inject(this);
     }
 
     @Override

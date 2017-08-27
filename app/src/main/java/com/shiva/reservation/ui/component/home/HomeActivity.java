@@ -55,7 +55,7 @@ public class HomeActivity extends BaseActivity implements HomeView {
     @Override
     protected void initializeDagger() {
         App app = (App) getApplication();
-        app.getMainScreenComponent().inject(this);
+        app.getMainComponent().inject(this);
     }
 
     @Override

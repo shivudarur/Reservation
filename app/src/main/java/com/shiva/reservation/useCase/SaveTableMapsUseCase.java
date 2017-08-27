@@ -32,4 +32,9 @@ public class SaveTableMapsUseCase {
     public Single<ResponseWrapper<Boolean>> updateTableMap(TableMap tableMap) {
         return dataRepository.updateTableMap(tableMap);
     }
+
+    @NonNull
+    public void resetTableMaps() {
+        dataRepository.resetTableMaps();
+    }
 }
